@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<div class="row justify-content-center mt-3">
+    <div class="col-1">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="№">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Име">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Специалност">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Email">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Телефон">
+        </div>
+    </div>
+    <div class="col-1">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Регион">
+        </div>
+    </div>
+    <div class="col-1">
+        <div class="input-group input-group-sm mb-3 justify-content-center">
+            <input type="submit" class="btn btn-sm btn-info" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" value="Търси">
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Име</th>
+            <th scope="col">Специалност</th>
+            <th scope="col">Email</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Регион</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of members">
+            <th scope="row">{{member.id}}</th>
+            <td>{{member.name}}</td>
+            <td>{{member.major}}</td>
+            <td>{{member.email}}</td>
+            <td>{{member.phoneNumber}}</td>
+            <td>{{member.region}}</td>
+            <td><input type="submit" value="преглед"></td>
+        </tr>
+    </tbody>
+</table>
