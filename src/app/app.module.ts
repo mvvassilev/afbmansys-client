@@ -10,6 +10,9 @@ import { MembersComponent } from './members/members.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoordinatorsComponent } from './coordinators/coordinators.component';
 import { MemberComponent } from './members/member/member.component';
+import { CourseComponent } from './courses/course/course.component';
+import { CoordinatorComponent } from './coordinators/coordinator/coordinator.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { MemberComponent } from './members/member/member.component';
     MembersComponent,
     CoursesComponent,
     CoordinatorsComponent,
-    MemberComponent
+    MemberComponent,
+    CourseComponent,
+    CoordinatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

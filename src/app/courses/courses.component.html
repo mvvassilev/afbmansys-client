@@ -1,3 +1,55 @@
 <app-navbar></app-navbar>
 
-<p>COURSES</p>
+<div class="row justify-content-center mt-3">
+    <div class="col-1">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="№">
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Име">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Дата">
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" placeholder="Валидност">
+        </div>
+    </div>
+    <div class="col-1">
+        <div class="input-group input-group-sm mb-3 justify-content-center">
+            <input type="submit" class="btn btn-sm btn-info" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" value="Търси">
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Име</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Валидност</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <th scope="row">{{course.id}}</th>
+            <td>{{course.courseName}}</td>
+            <td>{{course.date}}</td>
+            <td>{{course.validityPeriod}}</td>
+            <td><input type="submit" value="преглед"></td>
+        </tr>
+    </tbody>
+</table>

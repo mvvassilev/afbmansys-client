@@ -1,3 +1,22 @@
 <app-navbar></app-navbar>
 
-<p>COORDINATORS</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Име</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Валидност</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coordinator of coordinators">
+            <th scope="row">{{coordinator.id}}</th>
+            <td>{{coordinator.username}}</td>
+            <td>{{coordinator.password}}</td>
+            <td>{{coordinator.region}}</td>
+            <td><input type="submit" value="преглед"></td>
+        </tr>
+    </tbody>
+</table>

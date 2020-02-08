@@ -1,8 +1,8 @@
 export class Member {
     constructor(
-        private id:string,
-        private name:string, 
-        private personalID:string,
+        private id: string,
+        private name: string,
+        private personalID: string,
         private major: string,
         private sex: string,
         private photo: string,
@@ -17,5 +17,5 @@ export class Member {
         private workContractID: string,
         private declaration: boolean,
         private penaltyID: string
-    ) {}
+    ) { }
 }
