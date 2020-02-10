@@ -3,17 +3,25 @@
         <img class="ml-3" style="height: 40px;" src="../../assets/images/logo.png">
     </li>
     <li class="nav-item ml-3">
-        <a [routerLink]="['/members']" routerLinkActive="router-link-active" class="nav-link active"
-            href="#">Членове</a>
+        <a [routerLink]="['/members']"
+            routerLinkActive="active"
+            class="nav-link">Членове</a>
     </li>
     <li class="nav-item">
-        <a [routerLink]="['/courses']" routerLinkActive="router-link-active" class="nav-link" href="#">Курсове</a>
+        <a [routerLink]="['/courses']"
+            routerLinkActive="active"
+            class="nav-link">Курсове</a>
     </li>
     <li class="nav-item">
-        <a [routerLink]="['/coordinators']" routerLinkActive="router-link-active" class="nav-link"
-            href="#">Координатори</a>
+        <a [routerLink]="['/coordinators']"
+            routerLinkActive="active"
+            class="nav-link">Координатори</a>
     </li>
     <li class="nav-item ml-auto">
-        <input [routerLink]="['/']" routerLinkActive="router-link-active"  type="submit" class="mt-1 btn-sm btn-outline-danger" value="Изход">
+        <input [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            type="submit"
+            class="mt-1 btn-sm btn-outline-danger" 
+            value="Изход">
     </li>
 </ul>

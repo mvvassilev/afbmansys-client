@@ -19,7 +19,7 @@
           placeholder="Парола"
         />
       </div>
-      <input [routerLink]="['/members']" routerLinkActive="router-link-active"  type="submit" value="Вход"/>
+      <input (click)="onLogin()" type="submit" value="Вход"/>
     </form>    
   </div>
 

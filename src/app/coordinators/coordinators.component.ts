@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinator } from './coordinator/coordinator.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coordinators',
@@ -14,9 +15,12 @@ export class CoordinatorsComponent implements OnInit {
     new Coordinator('7102', '88_fifa', '7ah1s4', 'Южен'),
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  onLoadCoordinatorDetails(coordinator: Coordinator) {
+    this.router.navigate([`/coordinators/:${coordinator.id}`])
+  }
 }

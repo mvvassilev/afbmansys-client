@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Member } from './member/member.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-members',
@@ -34,10 +35,13 @@ export class MembersComponent implements OnInit {
 
   headElements = ['№', 'Име', 'ЕГН', 'Адрес', 'Регион', 'Специалност', 'Email', 'Телефон', 'Дата'];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  onLoadMemberDetails(member: Member) {
+    this.router.navigate([`members/:${member.id}`])
+  }
 
 }

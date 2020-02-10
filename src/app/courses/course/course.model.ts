@@ -1,9 +1,9 @@
 export class Course {
     constructor(
-        private id: string,
-        private courseName: string,
-        private language: string,
-        private date: Date,
-        private validityPeriod: string
+        public id: string,
+        public courseName: string,
+        public language: string,
+        public date: Date,
+        public validityPeriod: string
     ) { }
 }
