@@ -13,6 +13,9 @@ export class CourseComponent implements OnInit {
 
   // TEMP 
   id: string
+  metadata
+  title = 'Класически спортен тейпинг'
+  // TEMP - END
 
   constructor(private route: ActivatedRoute) { }
 
@@ -22,7 +25,16 @@ export class CourseComponent implements OnInit {
     //    ...
     // };
     
-    this.id = this.route.snapshot.params['id']
+    this.id = this.route.snapshot.params['id'],
+
+    // TEMP
+    this.metadata = [
+      ['№:', this.id],
+      ['Дата:', '03/02/2020'],
+      ['Лектор:', 'доц.Иванов'],
+    ]
+
+    // TEMP - END
   }
 
 }

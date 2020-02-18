@@ -10,6 +10,7 @@ import { Member } from './member.model';
 export class MemberComponent implements OnInit {
 
   member: Member
+
   // TEMP
   id: string
   metadataTop = [
@@ -55,13 +56,9 @@ export class MemberComponent implements OnInit {
     ['Членство:', '2016/2017 - 2018/2019'],
     ['Членски внос:', 'платен']
   ]
-  // TEMP
-  /**
-        public workContractID: string,
-        public mainAddress: string,
-        public declaration: boolean,
-        public penaltyID: string
-   */
+  // TEMP - END
+
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
