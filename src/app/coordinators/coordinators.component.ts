@@ -21,6 +21,6 @@ export class CoordinatorsComponent implements OnInit {
   }
 
   onLoadCoordinatorDetails(coordinator: Coordinator) {
-    this.router.navigate([`/coordinators/:${coordinator.id}`])
+    this.router.navigate([`/coordinators/${coordinator.id}`])
   }
 }

@@ -1,1 +1,31 @@
-<p>This is coordinator with id: {{ id }}</p>
+<!-- BACK BTN -->
+<div class="row justify-content-end">
+    <div class="col-1 mt-4">
+        <input [routerLink]="['..']" routerLinkActive="router-link-active" type="submit"
+            class="btn-sm btn-outline-danger" value="назад">
+    </div>
+</div>
+
+<!-- COURSE DATA -->
+<div class="row mt-3">
+    <div class="col-1"></div>
+    <div class="col-4 ml-auto" style="text-align: right;">
+        <h3>{{ name }}</h3>
+        <input type="submit" class="btn btn-outline-primary ml-2" value="Промяна">
+        <input type="submit" class="btn btn-outline-danger ml-2" value="Изтрий">
+    </div>
+    <div class="col-6">
+        <div *ngFor="let data of metadata" class="row mb-4">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                {{ data[0] }}
+            </div>
+            <div class="col-8">
+                {{ data[1] }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-1"></div>
+</div>
