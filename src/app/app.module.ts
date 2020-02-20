@@ -13,6 +13,9 @@ import { MemberComponent } from './members/member/member.component';
 import { CourseComponent } from './courses/course/course.component';
 import { CoordinatorComponent } from './coordinators/coordinator/coordinator.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ChangeMemberComponent } from './members/change-member/change-member.component';
+import { ChangeCourseComponent } from './courses/change-course/change-course.component';
+import { ChangeCoordinatorComponent } from './coordinators/change-coordinator/change-coordinator.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MemberComponent,
     CourseComponent,
     CoordinatorComponent,
+    ChangeMemberComponent,
+    ChangeCourseComponent,
+    ChangeCoordinatorComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,56 +1,38 @@
 <app-navbar></app-navbar>
 
-<div class="row justify-content-center mt-3">
-    <div class="col-1">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="№">
+<!-- SEARCH FUNCTIONALITY -->
+<div class="row justify-content-center mt-2">
+    <div class="col-2">
+        <div class="input-group">
+            <select class="custom-select" id="paymentStatusSelect">
+                <option selected>- платежен статус -</option>
+                <option value="1">Платили</option>
+                <option value="2">Неплатили</option>
+            </select>
         </div>
     </div>
     <div class="col-2">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="Име">
-        </div>
-    </div>
-    <div class="col-1">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="ЕГН">
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="Специалност">
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="Email">
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="Телефон">
-        </div>
-    </div>
-    <div class="col-1">
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" placeholder="Регион">
+        <div class="dropdown">
+            <div class="input-group">
+                <select class="custom-select" id="regionSelect">
+                    <option selected>- регион -</option>
+                    <option value="1">Западен</option>
+                    <option value="2">Източен</option>
+                    <option value="3">Северен</option>
+                    <option value="4">Южен</option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="col-1">
         <div class="input-group input-group-sm mb-3 justify-content-center">
-            <input type="submit" class="btn btn-sm btn-info" aria-label="Sizing example input"
+            <input type="submit" class="btn btn-primary btn-info" aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm" value="Търси">
         </div>
     </div>
 </div>
 
+<!-- TABLE -->
 <table class="table-sm table-bordered table-hover" style="width: 100%;" id="membersTable">
     <thead>
         <tr>
@@ -71,10 +53,8 @@
 
             <!-- CHANGE DATE FORMAT AND DISPLAY DATE -->
             <td>{{member.phoneNumber}}</td>
-            <td><input (click)="onLoadMemberDetails(member)" 
-                class="btn btn-outline-primary" 
-                type="submit" 
-                value="преглед"></td>
+            <td><input (click)="onLoadMemberDetails(member)" class="btn btn-outline-primary" type="submit"
+                    value="преглед"></td>
         </tr>
     </tbody>
 </table>

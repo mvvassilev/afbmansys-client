@@ -41,7 +41,7 @@ export class MembersComponent implements OnInit {
   }
 
   onLoadMemberDetails(member: Member) {
-    this.router.navigate([`members/:${member.id}`])
+    this.router.navigate([`members/${member.id}`])
   }
 
 }
