@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from './course.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -17,7 +17,7 @@ export class CourseComponent implements OnInit {
   title = 'Класически спортен тейпинг'
   // TEMP - END
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this.course = {
@@ -35,6 +35,13 @@ export class CourseComponent implements OnInit {
     ]
 
     // TEMP - END
+  }
+
+  /**
+   * TODO: Change '0000' for id to be dynamic
+   */
+  onChangeCourseDetails() {
+    this.router.navigate([`courses/change/0000`])
   }
 
 }

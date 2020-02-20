@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-coordinator',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangeCoordinatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   }
 
+  /**
+     * TODO: Change '0000' for id to be dynamic
+     */
+  onChangeCourseDetails() {
+    this.router.navigate([`coordinators/change/0000`])
+  }
 }
