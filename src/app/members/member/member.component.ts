@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from './member.model';
 
 @Component({
@@ -59,7 +59,7 @@ export class MemberComponent implements OnInit {
   // TEMP - END
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this.member = {
@@ -67,5 +67,12 @@ export class MemberComponent implements OnInit {
 
     // };
     this.id = this.route.snapshot.params['id']
+  }
+
+  /**
+   * TODO: Change '0000' for id to be dynamic
+   */
+  onChangeMemberDetails() {
+    this.router.navigate([`members/change/0000`])
   }
 }
