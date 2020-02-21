@@ -1,1 +1,30 @@
-<p>change-coordinator works!</p>
+<!-- BACK BTN -->
+<div class="row justify-content-end">
+    <div class="col-1 mt-4">
+        <input [routerLink]="['..']" routerLinkActive="router-link-active" type="submit"
+            class="btn-sm btn-outline-danger" value="назад">
+    </div>
+</div>
+
+<!-- COURSE DATA -->
+<div class="row mt-3">
+    <div class="col-1"></div>
+    <div class="col-4 ml-auto" style="text-align: right;">
+        <h3>{{ coordinatorName }}</h3>
+        <input (click)="onSaveCoordinatorData()" type="submit" class="btn btn-outline-success ml-2" value="Запази">
+    </div>
+    <div class="col-6">
+        <div *ngFor="let data of metadata" class="row mb-3">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                {{ data[0] }}
+            </div>
+            <div class="col-8">
+                <input type="text" value="{{ data[1] }}">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-1"></div>
+</div>

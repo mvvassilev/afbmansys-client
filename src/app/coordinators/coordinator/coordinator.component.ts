@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinator } from './coordinator.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-coordinator',
@@ -16,7 +16,7 @@ export class CoordinatorComponent implements OnInit {
   metadata
   // TEMP - END
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this.course = {
@@ -35,6 +35,13 @@ export class CoordinatorComponent implements OnInit {
       ]
 
     // TEMP - END
+  }
+
+  /**
+   * TODO: Change '0000' for id to be dynamic
+   */
+  onChangeCoordinatorDetails() {
+    this.router.navigate([`coordinators/change/0000`])
   }
 
 }

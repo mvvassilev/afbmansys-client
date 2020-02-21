@@ -7,16 +7,31 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./change-coordinator.component.css']
 })
 export class ChangeCoordinatorComponent implements OnInit {
+  // TEMP 
+  id: string
+  metadata
+  coordinatorName = 'Бойка Анастасова'
+  // TEMP - END
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
+    // TEMP
+    this.metadata = [
+      ['№:', this.id],
+      ['Регион:', 'Западен'],
+      ['Потребителско име:', 'boykaanastasova'],
+      ['Парола:', 'asdasd'],
+    ]
+
+    // TEMP - END
   }
 
   /**
      * TODO: Change '0000' for id to be dynamic
      */
-  onChangeCourseDetails() {
-    this.router.navigate([`coordinators/change/0000`])
+  onSaveCoordinatorData() {
+    this.router.navigate([`coordinators/0000`])
   }
 }
