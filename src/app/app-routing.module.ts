@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'courses/:id', component: CourseComponent },
   { path: 'coordinators', component: CoordinatorsComponent },
+  { path: 'coordinators/:id', component: CoordinatorComponent },
   { path: 'members/change/:id', component: ChangeMemberComponent },
   { path: 'courses/change/:id', component: ChangeCourseComponent },
   { path: 'coordinators/change/:id', component: ChangeCoordinatorComponent }
