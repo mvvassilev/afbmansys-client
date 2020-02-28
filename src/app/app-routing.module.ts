@@ -10,6 +10,8 @@ import { CoordinatorComponent } from './coordinators/coordinator/coordinator.com
 import { ChangeMemberComponent } from './members/change-member/change-member.component';
 import { ChangeCourseComponent } from './courses/change-course/change-course.component';
 import { ChangeCoordinatorComponent } from './coordinators/change-coordinator/change-coordinator.component';
+import { NewMemberComponent } from './members/new-member/new-member.component';
+import { NewCourseComponent } from './courses/new-course/new-course.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'coordinators/:id', component: CoordinatorComponent },
   { path: 'members/change/:id', component: ChangeMemberComponent },
   { path: 'courses/change/:id', component: ChangeCourseComponent },
-  { path: 'coordinators/change/:id', component: ChangeCoordinatorComponent }
+  { path: 'coordinators/change/:id', component: ChangeCoordinatorComponent },
+  { path: 'new-member', component: NewMemberComponent },
+  { path: 'new-course', component: NewCourseComponent }
 
 ];
 

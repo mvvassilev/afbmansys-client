@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="row justify-content-center mt-3">
+<!-- <div class="row justify-content-center mt-3">
     <div class="col-1">
         <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input"
@@ -31,7 +31,7 @@
                 aria-describedby="inputGroup-sizing-sm" value="Търси">
         </div>
     </div>
-</div>
+</div> -->
 
 <table class="table table-striped table-hover">
     <thead>
@@ -40,7 +40,10 @@
             <th scope="col">Име</th>
             <th scope="col">Дата</th>
             <th scope="col">Валидност</th>
-            <th scope="col"></th>
+            <th scope="col">
+                <input (click)="onAddNewCourse()" type="submit" class="btn btn-outline-success" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" value="Добави курс">
+            </th>
         </tr>
     </thead>
     <tbody>

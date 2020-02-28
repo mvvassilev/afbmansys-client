@@ -2,6 +2,8 @@
 
 <!-- SEARCH FUNCTIONALITY -->
 <div class="row justify-content-center mt-2">
+    <div class="col-3"></div>
+
     <div class="col-2">
         <div class="input-group">
             <select class="custom-select" id="paymentStatusSelect">
@@ -28,6 +30,15 @@
         <div class="input-group input-group-sm mb-3 justify-content-center">
             <input type="submit" class="btn btn-primary btn-info" aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm" value="Търси">
+        </div>
+    </div>
+
+    <div class="col-1"></div>
+
+    <div class="col-2">
+        <div class="input-group input-group-sm mb-3 justify-content-center">
+            <input (click)="onAddNewMember()" type="submit" class="btn btn-outline-success" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" value="Добави член">
         </div>
     </div>
 </div>

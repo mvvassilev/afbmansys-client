@@ -16,6 +16,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChangeMemberComponent } from './members/change-member/change-member.component';
 import { ChangeCourseComponent } from './courses/change-course/change-course.component';
 import { ChangeCoordinatorComponent } from './coordinators/change-coordinator/change-coordinator.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NewMemberComponent } from './members/new-member/new-member.component';
+import { NewCourseComponent } from './courses/new-course/new-course.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +36,15 @@ import { ChangeCoordinatorComponent } from './coordinators/change-coordinator/ch
     ChangeMemberComponent,
     ChangeCourseComponent,
     ChangeCoordinatorComponent,
+    NewMemberComponent,
+    NewCourseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

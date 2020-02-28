@@ -44,4 +44,7 @@ export class MembersComponent implements OnInit {
     this.router.navigate([`members/${member.id}`])
   }
 
+  onAddNewMember() {
+    this.router.navigate(['new-member'])
+  }
 }
