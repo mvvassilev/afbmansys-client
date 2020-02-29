@@ -44,7 +44,7 @@
 </div>
 
 <!-- TABLE -->
-<table class="table-sm table-bordered table-hover" style="width: 100%;" id="membersTable">
+<table class="table-sm table-hover" style="width: 100%;" id="membersTable">
     <thead>
         <tr>
             <th *ngFor="let headElement of headElements; let i = index" scope="col">{{headElement}}</th>
@@ -63,7 +63,7 @@
             <td>{{member.phoneNumber}}</td>
 
             <!-- CHANGE DATE FORMAT AND DISPLAY DATE -->
-            <td>{{member.phoneNumber}}</td>
+            <td>{{member.registerDate}}</td>
             <td><input (click)="onLoadMemberDetails(member)" class="btn btn-outline-primary" type="submit"
                     value="преглед"></td>
         </tr>
