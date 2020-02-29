@@ -76,29 +76,30 @@ export class NewMemberComponent implements OnInit {
 
   onSaveNewMember(){
     //TODO: Save member logic
-    let member: Member = new Member(
-      this.id, 
-      this.name, 
-      this.personalID,
-      this.major,
-      this.sex,
-      'PLACEHOLDER_PHOTO_URL',
-      this.phone,
-      this.registerDate,
-      this.region,
-      this.membershipID,
-      this.currentAddress,
-      this.mainAddress,
-      this.workAddress,
-      this.email,
-      this.workContractID,
-      this.declaration,
-      this.penaltyID
-    );
+    let body = {
+      "name" : this.name, 
+      "personalID" : this.personalID,
+      "major" : this.major,
+      "sex" : this.sex,
+      "photo" : 'PLACEHOLDER_PHOTO_URL',
+      "phoneNumber" : this.phone,
+      "registerDate" : this.registerDate,
+      "region" : this.region,
+      "membershipID" : this.membershipID,
+      "registerAddress" : this.currentAddress,
+      "mainAddress" : this.mainAddress,
+      "workAddress" : this.workAddress,
+      "email" : this.email,
+      "workContractID" : this.workContractID,
+      "declaration" : this.declaration,
+      "penaltyID" : this.penaltyID
+    };
+
+    console.log(body)
 
     let url = 'http://localhost:8080/members/new'
-    this.http.post(url,member,{responseType: 'text' as 'json'})
+    this.http.post(url,body)
 
-    this.router.navigate(['members'])
+    // this.router.navigate(['members'])
   }
 }

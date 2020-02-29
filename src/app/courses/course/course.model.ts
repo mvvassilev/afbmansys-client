@@ -3,7 +3,7 @@ export class Course {
         public id: string,
         public courseName: string,
         public language: string,
-        public date: Date,
+        public date: string,
         public validityPeriod: string
     ) { }
 }
