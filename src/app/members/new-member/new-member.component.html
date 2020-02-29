@@ -7,41 +7,43 @@
 </div>
 
 <!-- PERSONAL DATA + IMAGE -->
-<div class="row mt-3">
-    <div class="col-1"></div>
-    <div class="col-2">
-        <img class="ml-3 mb-3 img-thumbnail" style="height: 160px;" src="../../../assets/images/profile.png">
-        <input (click)="onSaveNewMember()" type="submit" class="btn btn-outline-success ml-5" value="Запази">
-    </div>
-    <div class="col-4">
-        <div *ngFor="let data of metadataTop" class="row mb-2">
-
-            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                {{ data[0] }}
-            </div>
-            <div class="col-8">
-                <input type="text" value="{{ data[1] }}">
-            </div>
-
+<form action="submit">
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-2">
+            <img class="ml-3 mb-3 img-thumbnail" style="height: 160px;" src="../../../assets/images/profile.png">
+            <input (click)="onSaveNewMember()" type="submit" class="btn btn-outline-success ml-5" value="Запази">
         </div>
-    </div>
-    <div class="col-4">
-        <div *ngFor="let data of metadataBottom" class="row">
-            <div class="col-12">
-                <div class="row mb-3">
-                    <div style="text-align: right; color: grey; font-style: italic;" class="col-5">
-                        {{ data[0] }}
-                    </div>
-                    <div class="col-7">
-                        <input type="text" value="{{ data[1] }}">
+        <div class="col-4">
+            <div *ngFor="let data of metadataTop" class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    {{ data[0] }}
+                </div>
+                <div class="col-8">
+                    <input type="text" value="{{ data[1] }}">
+                </div>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div *ngFor="let data of metadataBottom" class="row">
+                <div class="col-12">
+                    <div class="row mb-3">
+                        <div style="text-align: right; color: grey; font-style: italic;" class="col-5">
+                            {{ data[0] }}
+                        </div>
+                        <div class="col-7">
+                            <input type="text" value="{{ data[1] }}">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-1"></div>
-</div>
+        <div class="col-1"></div>
+    </div>
+</form>
 
 <hr>
 
