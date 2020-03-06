@@ -15,18 +15,142 @@
             <input (click)="onSaveNewMember()" type="submit" class="btn btn-outline-success ml-5" value="Запази">
         </div>
         <div class="col-4">
-            <div *ngFor="let data of metadataTop" class="row mb-2">
+            <div class="row mb-2">
 
                 <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                    {{ data[0] }}
+                    Име:
                 </div>
                 <div class="col-8">
-                    <input type="text" value="{{ data[1] }}">
+                    <input [(ngModel)]="name" name="name" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    ЕГН:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="personalID" name="personalID" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Email:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="email" name="email" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Специалност:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="major" name="major" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Пол:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="sex" name="sex" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Телефон:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="phone" name="phone" type="text">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-4">
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Дата (рег):
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="registerDate" name="registerDate" type="text" placeholder="гггг-мм-дд">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Регион:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="region" name="region" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Адрес:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="mainAddress" name="mainAddress" type="text">
+                </div>
+
+            </div>
+
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Адрес кор-я:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="currentAddress" name="currentAddress" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    Адрес работа:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="workAddress" name="workAddress" type="text">
+                </div>
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                    № Тр. договор:
+                </div>
+                <div class="col-8">
+                    <input [(ngModel)]="workContractID" name="workContractID" type="text">
                 </div>
 
             </div>
         </div>
-        <div class="col-4">
+        <!-- <div class="col-4">
             <div *ngFor="let data of metadataBottom" class="row">
                 <div class="col-12">
                     <div class="row mb-3">
@@ -34,12 +158,12 @@
                             {{ data[0] }}
                         </div>
                         <div class="col-7">
-                            <input type="text" value="{{ data[1] }}">
+                            <input [(ngModel)]="data[2]" name="{{ data[1] }}" type="text">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="col-1"></div>
     </div>

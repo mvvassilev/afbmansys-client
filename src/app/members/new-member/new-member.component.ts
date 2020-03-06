@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewMemberComponent implements OnInit {
 
-  id: string
   personalID: string
   name: string
   phone: string
@@ -21,30 +20,30 @@ export class NewMemberComponent implements OnInit {
   registerDate: string
   region: string
   membershipID: string = 'TEST_MEMBERSHIP_ID'
-  workAddress: string
+  workAddress: string 
   currentAddress: string
-  workContractID: string = 'TEST_WORK_CONTRACT_ID'
+  workContractID: string
   declaration: boolean = true
   penaltyID: string = 'TEST_PENALTY_ID'
 
 
   // TEMP
+  message: any
   metadataTop = [
-    ['Чл. номер:', '', 'id'],
-    ['ЕГН:', '', 'personalID'],
-    ['Име:', '', 'name'],
-    ['Телефон:', '', 'phone'],
-    ['Email:', '', 'email'],
-    ['Специалност:', '', 'major'],
-    ['Адрес:', '', 'mainAddress'],
+    ['Име:', 'name', this.name],
+    ['ЕГН:', 'personalID', this.personalID],
+    ['Телефон:', 'phone', this.phone],
+    ['Email:', 'email', this.email],
+    ['Специалност:', 'major', this.major],
+    ['Адрес:', 'mainAddress', this.mainAddress],
   ]
 
   metadataBottom = [
-    ['Пол:', '', 'sex'],
-    ['Дата:', '', 'registerDate'],
-    ['Регион:', '', 'region'],
-    ['Служебен адрес:', '', 'workAddress'],
-    ['Адрес за кореспонденция:', '', 'currentAddress']
+    ['Пол:', 'sex', this.sex],
+    ['Дата:', 'registerDate', this.registerDate],
+    ['Регион:', 'region', this.region],
+    ['Служебен адрес:', 'workAddress', this.workAddress],
+    ['Адрес за кореспонденция:', 'currentAddress', this.currentAddress]
   ]
 
   metadataCertificates = [
@@ -75,50 +74,31 @@ export class NewMemberComponent implements OnInit {
   }
 
   onSaveNewMember() {
-    //TODO: Save member logic
-    // let body = {
-    //   "name" : this.name, 
-    //   "personalID" : this.personalID,
-    //   "major" : this.major,
-    //   "sex" : this.sex,
-    //   "photo" : 'PLACEHOLDER_PHOTO_URL',
-    //   "phoneNumber" : this.phone,
-    //   "registerDate" : this.registerDate,
-    //   "region" : this.region,
-    //   "membershipID" : this.membershipID,
-    //   "registerAddress" : this.currentAddress,
-    //   "mainAddress" : this.mainAddress,
-    //   "workAddress" : this.workAddress,
-    //   "email" : this.email,
-    //   "workContractID" : this.workContractID,
-    //   "declaration" : this.declaration,
-    //   "penaltyID" : this.penaltyID
-    // };
 
     let body = {
-      "name": "a",
-      "personalID": "a",
-      "major": "a",
-      "sex": "a",
-      "photo": 'PLACEHOLDER_PHOTO_URL',
-      "phoneNumber": "a",
-      "registerDate": "2020/11/11",
-      "region": "a",
-      "membershipID": "a",
-      "registerAddress": "a",
-      "mainAddress": "a",
-      "workAddress": "a",
-      "email": "a",
-      "workContractID": "a",
-      "declaration": "a",
-      "penaltyID": "a"
+      "name" : this.name, 
+      "personalID" : this.personalID,
+      "major" : this.major,
+      "sex" : this.sex,
+      "photo" : 'PLACEHOLDER_PHOTO_URL',
+      "phoneNumber" : this.phone,
+      "registerDate" : this.registerDate,
+      "region" : this.region,
+      "membershipID" : this.membershipID,
+      "registerAddress" : this.currentAddress,
+      "mainAddress" : this.mainAddress,
+      "workAddress" : this.workAddress,
+      "email" : this.email,
+      "workContractID" : this.workContractID,
+      "declaration" : this.declaration,
+      "penaltyID" : this.penaltyID
     };
 
     console.log(body)
 
     let url = 'http://localhost:8080/members/new'
-    this.http.post(url, body, { responseType: 'text' as 'json' })
+    this.http.post(url, body, { responseType: 'text' as 'json' }).subscribe((data) => this.message = data)
 
-    // this.router.navigate(['members'])
+    this.router.navigate(['members'])
   }
 }
