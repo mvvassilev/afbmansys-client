@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from './member.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-member',
@@ -9,7 +10,25 @@ import { Member } from './member.model';
 })
 export class MemberComponent implements OnInit {
 
-  member: Member
+  member = {
+    id: 0,
+    name: "",
+    personalID: "",
+    major: "",
+    sex: "",
+    photo: "",
+    phone: "",
+    email: "",
+    mainAddress: "",
+    registerDate: "",
+    region: "",
+    membershipID: '',
+    workAddress: "",
+    currentAddress: "",
+    workContractID: "",
+    declaration: true,
+    penaltyID: ''
+  }
 
   // TEMP
   id: string
@@ -59,20 +78,29 @@ export class MemberComponent implements OnInit {
   // TEMP - END
 
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
 
-  ngOnInit() {
-    // this.member = {
-    //   id: this.route.snapshot.params['id'],
-
-    // };
     this.id = this.route.snapshot.params['id']
+    let url = "http://localhost:8080/members/" + this.id
+    this.http.get(url).toPromise().then(data => {
+      console.log(data)
+
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
+          this.member[key] = data[key];
+      }
+    })
+
+
+    console.log(this.member)
   }
+
+  ngOnInit() { }
 
   /**
    * TODO: Change '0000' for id to be dynamic
    */
   onChangeMemberDetails() {
-    this.router.navigate([`members/change/0000`])
+    this.router.navigate([`members/change/${this.id}`])
   }
 }

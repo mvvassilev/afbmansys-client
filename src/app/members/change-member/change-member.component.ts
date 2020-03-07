@@ -62,12 +62,13 @@ export class ChangeMemberComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id']
   }
 
   /**
    * TODO: Change static 0000
    */
   onSaveMemberDetails() {
-    this.router.navigate([`members/0000`])
+    this.router.navigate([`members/${this.id}`])
   }
 }

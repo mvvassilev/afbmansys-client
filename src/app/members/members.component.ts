@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { Member } from './member/member.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -13,19 +13,20 @@ export class MembersComponent implements OnInit {
 
   headElements = ['№', 'Име', 'ЕГН', 'Адрес', 'Регион', 'Специалност', 'Email', 'Телефон', 'Дата'];
 
-  constructor(private router: Router, private http: HttpClient) { 
+  constructor(private router: Router, private http: HttpClient, private changeDetect: ChangeDetectorRef) {
     let url = "http://localhost:8080/members"
     this.http.get(url).toPromise().then(data => {
       console.log(data)
 
-      for (let key in data){
-        if(data.hasOwnProperty(key))
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
           this.members.push(data[key]);
       }
     })
   }
 
   ngOnInit() {
+    this.changeDetect.detectChanges()
   }
 
   onLoadMemberDetails(member: Member) {
