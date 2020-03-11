@@ -15,30 +15,141 @@
         <input type="submit" class="btn btn-outline-danger ml-2" value="Изтрий">
     </div>
     <div class="col-4">
-        <div *ngFor="let data of metadataTop" class="row mb-3">
+        <div class="row mb-2">
 
             <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                {{ data[0] }}
+                Име:
             </div>
             <div class="col-8">
-                {{ data[1] }}
+                {{member.name}}
             </div>
 
         </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                ЕГН:
+            </div>
+            <div class="col-8">
+                {{member.personalID}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Email:
+            </div>
+            <div class="col-8">
+                {{member.email}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Специалност:
+            </div>
+            <div class="col-8">
+                {{member.major}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Пол:
+            </div>
+            <div class="col-8">
+                {{member.sex}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Телефон:
+            </div>
+            <div class="col-8">
+                {{member.phoneNumber}}
+            </div>
+
+        </div>
+
     </div>
     <div class="col-4">
-        <div *ngFor="let data of metadataBottom" class="row">
-            <div class="col-12">
-                <div class="row mb-3">
-                    <div style="text-align: right; color: grey; font-style: italic;" class="col-5">
-                        {{ data[0] }}
-                    </div>
-                    <div class="col-7">
-                        {{ data[1] }}
-                    </div>
-                </div>
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Дата (рег):
             </div>
+            <div class="col-8">
+                {{member.registerDate}}
+            </div>
+
         </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Регион:
+            </div>
+            <div class="col-8">
+                {{member.region}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Адрес:
+            </div>
+            <div class="col-8">
+                {{member.mainAddress}}
+            </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Адрес кор-я:
+            </div>
+            <div class="col-8">
+                {{member.registerAddress}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Адрес работа:
+            </div>
+            <div class="col-8">
+                {{member.workAddress}}
+            </div>
+
+        </div>
+
+        <div class="row mb-2">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                № Тр. договор:
+            </div>
+            <div class="col-8">
+                {{member.workContractID}}
+            </div>
+
+        </div>
+
     </div>
 
     <div class="col-1"></div>

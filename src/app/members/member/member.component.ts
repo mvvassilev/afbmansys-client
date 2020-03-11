@@ -10,25 +10,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MemberComponent implements OnInit {
 
-  member = {
-    id: 0,
-    name: "",
-    personalID: "",
-    major: "",
-    sex: "",
-    photo: "",
-    phone: "",
-    email: "",
-    mainAddress: "",
-    registerDate: "",
-    region: "",
-    membershipID: '',
-    workAddress: "",
-    currentAddress: "",
-    workContractID: "",
-    declaration: true,
-    penaltyID: ''
-  }
+  member: any
+
+  personalID: string
+  name: string
+  phoneNumber: string
+  email: string
+  major: string
+  mainAddress: string
+  sex: string
+  registerDate: string
+  region: string
+  membershipID: string = 'TEST_MEMBERSHIP_ID'
+  workAddress: string
+  registerAddress: string
+  workContractID: string
+  declaration: boolean = true
+  penaltyID: string = 'TEST_PENALTY_ID'
+  photo: string = 'TEST_PHOTO_STRING'
 
   // TEMP
   id: string
@@ -79,9 +78,9 @@ export class MemberComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
-
     this.id = this.route.snapshot.params['id']
-    let url = "http://localhost:8080/members/" + this.id
+
+    let url = `http://localhost:8080/members/${this.id}`
     this.http.get(url).toPromise().then(data => {
       console.log(data)
 
@@ -91,8 +90,25 @@ export class MemberComponent implements OnInit {
       }
     })
 
-
-    console.log(this.member)
+    this.member = {
+      "id": this.id,
+      "name": this.name,
+      "personalID": this.personalID,
+      "major": this.major,
+      "sex": this.sex,
+      "photo": this.photo,
+      "phoneNumber": this.phoneNumber,
+      "email": this.email,
+      "mainAddress": this.mainAddress,
+      "registerDate": this.registerDate,
+      "region": this.region,
+      "membershipID": this.membershipID,
+      "workAddress": this.workAddress,
+      "registerAddress": this.registerAddress,
+      "workContractID": this.workContractID,
+      "declaration": this.declaration,
+      "penaltyID": this.penaltyID
+    }
   }
 
   ngOnInit() { }
