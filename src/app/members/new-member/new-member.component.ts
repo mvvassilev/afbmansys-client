@@ -19,12 +19,23 @@ export class NewMemberComponent implements OnInit {
   sex: string
   registerDate: string
   region: string
-  membershipID: string = 'TEST_MEMBERSHIP_ID'
+  membershipID: string
   workAddress: string 
   currentAddress: string
   workContractID: string
-  declaration: boolean = true
-  penaltyID: string = 'TEST_PENALTY_ID'
+  declaration: boolean
+  penaltyID: string
+
+  diplomas: string[] //the IDs of all the member's diplomas
+  degree: string
+  university: string
+  diplomaMajor: string // use as 'major'
+  startDate: string // yyyy-mm-dd
+  endDate: string // yyyy-mm-dd
+
+
+  courses: string[]
+  additional_qualifications: string[]
 
 
   // TEMP

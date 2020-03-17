@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class MembersComponent implements OnInit {
   members: Member[] = []
 
+  
+
   headElements = ['№', 'Име', 'ЕГН', 'Адрес', 'Регион', 'Специалност', 'Email', 'Телефон', 'Дата'];
 
   constructor(private router: Router, private http: HttpClient, private changeDetect: ChangeDetectorRef) {
