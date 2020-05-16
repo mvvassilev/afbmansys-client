@@ -39,7 +39,7 @@
             <th scope="col">№</th>
             <th scope="col">Име</th>
             <th scope="col">Дата</th>
-            <th scope="col">Валидност</th>
+            <th scope="col">Лектор</th>
             <th scope="col">
                 <input (click)="onAddNewCourse()" type="submit" class="btn btn-outline-success" aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm" value="Добави курс">
@@ -49,9 +49,9 @@
     <tbody>
         <tr *ngFor="let course of courses | paginate: { itemsPerPage: 7, currentPage: p }">
             <th scope="row">{{course.id}}</th>
-            <td>{{course.courseName}}</td>
+            <td>{{course.name}}</td>
             <td>{{course.date}}</td>
-            <td>{{course.validityPeriod}}</td>
+            <td>{{course.lector}}</td>
             
             <td><input (click)="onLoadCourseDetails(course)"
                 class="btn btn-outline-primary"

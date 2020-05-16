@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from './course.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-course',
@@ -9,7 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CourseComponent implements OnInit {
 
-  course: Course
+  course: any
+
+  name: string
+  date: string
+  lector: string
 
   // TEMP 
   id: string
@@ -17,31 +22,35 @@ export class CourseComponent implements OnInit {
   title = 'Класически спортен тейпинг'
   // TEMP - END
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
-  ngOnInit() {
-    // this.course = {
-    //   id: this.route.snapshot.params['id'],
-    //    ...
-    // };
-    
-    this.id = this.route.snapshot.params['id'],
+  ngOnInit() {    
+    this.id = this.route.snapshot.params['id']
 
-    // TEMP
-    this.metadata = [
-      ['№:', this.id],
-      ['Дата:', '03/02/2020'],
-      ['Лектор:', 'доц.Иванов'],
-    ]
+    let url = `http://localhost:8080/courses/${this.id}`
+    this.http.get(url).toPromise().then(data => {
+      console.log(data)
 
-    // TEMP - END
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
+          this.course[key] = data[key];
+      }
+    })
+
+    this.course = {
+      "date" : this.date,
+      "name": this.name,
+      "lector": this.lector,
+    }
   }
 
-  /**
-   * TODO: Change '0000' for id to be dynamic
-   */
   onChangeCourseDetails() {
-    this.router.navigate([`courses/change/0000`])
+    this.router.navigate([`courses/change/${this.id}`])
   }
 
+  onDeleteCourse() {
+    let url = `http://localhost:8080/courses/${this.id}`
+    this.http.delete(url).subscribe(() => console.log("course deleted")) // IGNORE THE ERROR IN THE CONSOLE
+    this.router.navigate([`courses`])
+  }
 }

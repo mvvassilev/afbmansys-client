@@ -11,18 +11,29 @@
     <div class="col-1"></div>
     <div class="col-4 ml-auto" style="text-align: right;">
         <div class="input-group input-group-lg">
-            <input type="text" class="form-control mb-3" placeholder="Наименование">
+            <input [(ngModel)]="name" type="text" class="form-control mb-3" placeholder="Наименование">
         </div>
         <input (click)="onSaveNewCourse()" type="submit" class="btn btn-outline-success ml-2" value="Запази">
     </div>
     <div class="col-6">
-        <div *ngFor="let data of metadata" class="row mb-3">
+        <div class="row mb-3">
 
             <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                {{ data[0] }}
+                Дата:
             </div>
             <div class="col-8">
-                <input [(ngModel)]="data[2]" type="text" value="{{ data[1] }}">
+                <input [(ngModel)]="date" type="text" placeholder="гггг-мм-дд">
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Лектор:
+            </div>
+            <div class="col-8">
+                <input [(ngModel)]="lector" type="text">
             </div>
 
         </div>

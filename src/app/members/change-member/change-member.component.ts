@@ -65,9 +65,6 @@ export class ChangeMemberComponent implements OnInit {
 
   ngOnInit() { }
 
-  /**
-   * TODO: Change static 0000
-   */
   onSaveMemberDetails() {
     let url = `http://localhost:8080/members/${this.id}`
 

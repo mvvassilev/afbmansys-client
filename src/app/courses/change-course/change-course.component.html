@@ -1,7 +1,7 @@
 <!-- BACK BTN -->
 <div class="row justify-content-end">
     <div class="col-1 mt-4">
-        <input [routerLink]="['..']" routerLinkActive="router-link-active" type="submit"
+        <input (click)="onReturnToCourseView()" routerLinkActive="router-link-active" type="submit"
             class="btn-sm btn-outline-danger" value="назад">
     </div>
 </div>
@@ -10,17 +10,28 @@
 <div class="row mt-3">
     <div class="col-1"></div>
     <div class="col-4 ml-auto" style="text-align: right;">
-        <h3>{{ title }}</h3>
+        <input class="mb-3 p-3" [(ngModel)]="course.name" type="text" value="{{ name }}" placeholder="Наименование">
         <input (click)="onSaveCourseData()" type="submit" class="btn btn-outline-success ml-2" value="Запази">
     </div>
     <div class="col-6">
-        <div *ngFor="let data of metadata" class="row mb-3">
+        <div class="row mb-3">
 
             <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                {{ data[0] }}
+                Дата:
             </div>
             <div class="col-8">
-                <input type="text" value="{{ data[1] }}">
+                <input [(ngModel)]="course.date" type="text" value="{{ date }}" placeholder="гггг-мм-дд">
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Лектор:
+            </div>
+            <div class="col-8">
+                <input [(ngModel)]="course.lector" type="text" value="{{ lector }}">
             </div>
 
         </div>

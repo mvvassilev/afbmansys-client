@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Course } from './course/course.model';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses',
@@ -8,23 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  courses: Course[] = [
-    new Course('19292', 'Класически спортен тейпинг', 'Български', "2020/4/11", 'без'),
-    new Course('12453', 'Кинезиологичен тейпинг: Курс А долен квадрант', 'Български', "2020/4/11", 'без'),
-    new Course('61242', 'PNF - I част (A)', 'Български', '2020/4/11', 'без'),
-    new Course('99012', 'Mulligan А-горен квадрант', 'Български', '2020/4/11', 'без'),
-    new Course('39795', 'Класически спортен тейпинг', 'Български', '2020/4/11', 'без'),
-    new Course('59296', 'Кинезиологичен тейпинг: Курс А долен квадрант', 'Български', '2020/4/11', 'без'),
-    new Course('19498', 'PNF - I част (A)', 'Български', '2020/4/11', 'без'),
-    new Course('39232', 'Mulligan А-горен квадрант', 'Български', '2020/4/11', 'без'),
-    new Course('69595', 'Класически спортен тейпинг', 'Български', '2020/4/11', 'без'),
-    new Course('79248', 'Кинезиологичен тейпинг: Курс А долен квадрант', 'Български', '2020/4/11', 'без'),
-    new Course('89210', 'PNF - I част (A)', 'Български', '2020/4/11', 'без'),
-    new Course('89491', 'Mulligan А-горен квадрант', 'Български', '2020/4/11', 'без'),
-    new Course('29237', 'Mulligan Б - долен квадрант', 'Български', '2020/4/11', 'без')
-  ]
+  courses: Course[] = []
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient, private changeDetect: ChangeDetectorRef) { 
+    let url = "http://localhost:8080/courses/all"
+    this.http.get(url).toPromise().then(data => {
+      console.log(data)
+
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
+          this.courses.push(data[key]);
+      }
+    })
+  }
 
   ngOnInit() {
   }
