@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinator } from './coordinator/coordinator.model';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-coordinators',
@@ -8,19 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./coordinators.component.css']
 })
 export class CoordinatorsComponent implements OnInit {
-  coordinators: Coordinator[] = [
-    new Coordinator('1202', 'boykaanastasova', 'asdasd', 'Западен'),
-    new Coordinator('4112', 'gogo1', '61na9a', 'Източен'),
-    new Coordinator('8264', 'spaiky_124', '9b5an1', 'Северен'),
-    new Coordinator('7102', '88_fifa', '7ah1s4', 'Южен'),
-  ]
+  coordinators: Coordinator[] = []
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) {
+    let url = "http://localhost:8080/coordinators/all"
+    this.http.get(url).toPromise().then(data => {
+      console.log(data)
+
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
+          this.coordinators.push(data[key]);
+      }
+    })
+  }
 
   ngOnInit() {
   }
 
   onLoadCoordinatorDetails(coordinator: Coordinator) {
-    this.router.navigate([`/coordinators/${coordinator.id}`])
+    this.router.navigate([`/coordinators/${coordinator.memberID}`])
   }
 }

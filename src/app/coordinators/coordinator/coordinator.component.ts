@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinator } from './coordinator.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-coordinator',
@@ -9,39 +10,39 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CoordinatorComponent implements OnInit {
 
-  coordinator: Coordinator
-  // TEMP 
-  id: string
-  name: string = 'Бойка Анастасова'
-  metadata
-  // TEMP - END
+  coordinator: any
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  username: string
+  password: string
+  region: string
+  memberID: number
+
+  metadata
+
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
+  }
 
   ngOnInit() {
-    // this.course = {
-    //   id: this.route.snapshot.params['id'],
-    //    ...
-    // };
+    this.memberID = this.route.snapshot.params['memberID']
 
-    this.id = this.route.snapshot.params['id'],
+    let url = `http://localhost:8080/coordinators/${this.memberID}`
+    this.http.get(url).toPromise().then(data => {
+      console.log(data)
 
-      // TEMP
-      this.metadata = [
-        ['№:', this.id],
-        ['Регион:', 'Западен'],
-        ['Потребителско име:', 'boykaanastasova'],
-        ['Парола:', 'asdasd'],
-      ]
+      for (let key in data) {
+        if (data.hasOwnProperty(key))
+          this.coordinator[key] = data[key];
+      }
+    })
 
-    // TEMP - END
+    this.coordinator = {
+      "username": this.username,
+      "password": this.password,
+      "region": this.region
+    }
   }
 
-  /**
-   * TODO: Change '0000' for id to be dynamic
-   */
   onChangeCoordinatorDetails() {
-    this.router.navigate([`coordinators/change/0000`])
+    this.router.navigate([`coordinators/change/${this.memberID}`])
   }
-
 }

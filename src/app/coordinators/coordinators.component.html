@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let coordinator of coordinators | paginate: { itemsPerPage: 10, currentPage: p }">
-            <th scope="row">{{coordinator.id}}</th>
+            <th scope="row">{{coordinator.memberID}}</th>
             <td>{{coordinator.username}}</td>
             <td>{{coordinator.password}}</td>
             <td>{{coordinator.region}}</td>

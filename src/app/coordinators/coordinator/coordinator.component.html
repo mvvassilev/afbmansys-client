@@ -10,18 +10,40 @@
 <div class="row mt-3">
     <div class="col-1"></div>
     <div class="col-4 ml-auto" style="text-align: right;">
-        <h3>{{ name }}</h3>
+        <h3>Coordinator configure page</h3>
         <input (click)="onChangeCoordinatorDetails()" type="submit" class="btn btn-outline-primary ml-2" value="Промяна">
         <input type="submit" class="btn btn-outline-danger ml-2" value="Изтрий">
     </div>
     <div class="col-6">
-        <div *ngFor="let data of metadata" class="row mb-4">
+        <div class="row mb-5">
 
             <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
-                {{ data[0] }}
+                Username:
             </div>
             <div class="col-8">
-                {{ data[1] }}
+                {{ coordinator.username }}
+            </div>
+
+        </div>
+
+        <div class="row mb-5">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Password:
+            </div>
+            <div class="col-8">
+                {{ coordinator.password }}
+            </div>
+
+        </div>
+
+        <div class="row mb-5">
+
+            <div class="col-4" style="text-align: right; color:grey; font-style: italic;">
+                Region:
+            </div>
+            <div class="col-8">
+                {{ coordinator.region }}
             </div>
 
         </div>
