@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from './member.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-member',
@@ -118,5 +118,11 @@ export class MemberComponent implements OnInit {
    */
   onChangeMemberDetails() {
     this.router.navigate([`members/change/${this.id}`])
+  }
+
+  onDeleteMember() {
+    let url = `http://localhost:8080/members/${this.id}`
+    this.http.delete(url).subscribe(() => console.log("user deleted")) // IGNORE THE ERROR IN THE CONSOLE
+    this.router.navigate([`members`])
   }
 }
