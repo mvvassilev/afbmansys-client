@@ -56,7 +56,6 @@ export class ChangeMemberComponent implements OnInit {
       "currentAddress": this.currentAddress,
       "registerDate": this.registerDate,
       "region": this.region,
-      "membershipID": this.membershipID,
       "workAddress": this.workAddress,
       "registerAddress": this.registerAddress,
       "workContractID": this.workContractID,
