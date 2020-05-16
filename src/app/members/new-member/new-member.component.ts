@@ -15,12 +15,12 @@ export class NewMemberComponent implements OnInit {
   phone: string
   email: string
   major: string
-  mainAddress: string
-  sex: string
+  registerAddress: string
+  gender: string
   registerDate: string
   region: string
   membershipID: string
-  workAddress: string 
+  workAddress: string
   currentAddress: string
   workContractID: string
   declaration: boolean
@@ -46,11 +46,11 @@ export class NewMemberComponent implements OnInit {
     ['Телефон:', 'phone', this.phone],
     ['Email:', 'email', this.email],
     ['Специалност:', 'major', this.major],
-    ['Адрес:', 'mainAddress', this.mainAddress],
+    ['Адрес:', 'registerAddress', this.registerAddress],
   ]
 
   metadataBottom = [
-    ['Пол:', 'sex', this.sex],
+    ['Пол:', 'gender', this.gender],
     ['Дата:', 'registerDate', this.registerDate],
     ['Регион:', 'region', this.region],
     ['Служебен адрес:', 'workAddress', this.workAddress],
@@ -74,7 +74,7 @@ export class NewMemberComponent implements OnInit {
 
   metadataMembership = [
     ['Сертификат за членство:', ''],
-    ['Членство:', ''],
+    ['Вид членство:', ''],
     ['Членски внос:', '']
   ]
   // TEMP - END
@@ -87,22 +87,22 @@ export class NewMemberComponent implements OnInit {
   onSaveNewMember() {
 
     let body = {
-      "name" : this.name, 
-      "personalID" : this.personalID,
-      "major" : this.major,
-      "sex" : this.sex,
-      "photo" : 'PLACEHOLDER_PHOTO_URL',
-      "phoneNumber" : this.phone,
-      "registerDate" : this.registerDate,
-      "region" : this.region,
-      "membershipID" : this.membershipID,
-      "registerAddress" : this.currentAddress,
-      "mainAddress" : this.mainAddress,
-      "workAddress" : this.workAddress,
-      "email" : this.email,
-      "workContractID" : this.workContractID,
-      "declaration" : this.declaration,
-      "penaltyID" : this.penaltyID
+      "name": this.name,
+      "personalID": this.personalID,
+      "major": this.major,
+      "gender": this.gender,
+      "photo": 'PLACEHOLDER_PHOTO_URL',
+      "phoneNumber": this.phone,
+      "registerDate": this.registerDate,
+      "region": this.region,
+      "membershipID": this.membershipID,
+      "registerAddress": this.registerAddress,
+      "currentAddress": this.currentAddress,
+      "workAddress": this.workAddress,
+      "email": this.email,
+      "workContractID": this.workContractID,
+      "declaration": this.declaration,
+      "penaltyID": this.penaltyID
     };
 
     console.log(body)

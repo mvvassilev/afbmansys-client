@@ -58,14 +58,11 @@
             <th scope="row">{{member.id}}</th>
             <td>{{member.name}}</td>
             <td>{{member.personalID}}</td>
-            <td>{{member.mainAddress}}</td>
+            <td>{{member.currentAddress}}</td>
             <td>{{member.region}}</td>
             <td>{{member.major}}</td>
             <td>{{member.email}}</td>
             <td>{{member.phoneNumber}}</td>
-
-            <!-- CHANGE DATE FORMAT AND DISPLAY DATE -->
-            <td>{{member.registerDate}}</td>
             <td><input (click)="onLoadMemberDetails(member)" class="btn btn-outline-primary" type="submit"
                     value="преглед"></td>
         </tr>

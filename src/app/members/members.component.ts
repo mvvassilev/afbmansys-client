@@ -13,10 +13,10 @@ export class MembersComponent implements OnInit {
 
   
 
-  headElements = ['№', 'Име', 'ЕГН', 'Адрес', 'Регион', 'Специалност', 'Email', 'Телефон', 'Дата'];
+  headElements = ['№', 'Име', 'ЕГН', 'Адрес', 'Регион', 'Специалност', 'Email', 'Телефон'];
 
   constructor(private router: Router, private http: HttpClient, private changeDetect: ChangeDetectorRef) {
-    let url = "http://localhost:8080/members"
+    let url = "http://localhost:8080/members/all"
     this.http.get(url).toPromise().then(data => {
       console.log(data)
 
