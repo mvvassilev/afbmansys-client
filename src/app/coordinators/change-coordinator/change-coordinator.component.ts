@@ -9,19 +9,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ChangeCoordinatorComponent implements OnInit {
 
-  coordinator: any
-
+  
   memberID: number
   username: string
   password: string
   region: string
+  
+  coordinator: any
+
+  message: any
 
   metadata
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.memberID = this.route.snapshot.params['memberID']
 
-    let url = `http://localhost:8080/courses/${this.memberID}`
+    let url = `http://localhost:8080/coordinators/${this.memberID}`
     this.http.get(url).toPromise().then(data => {
       console.log(data)
 
@@ -32,8 +35,8 @@ export class ChangeCoordinatorComponent implements OnInit {
     })
 
     this.coordinator = {
-      "memberID": this.memberID,
       "username": this.username,
+      "memberID": this.memberID,
       "date": this.password,
       "region": this.region
     }
@@ -43,6 +46,22 @@ export class ChangeCoordinatorComponent implements OnInit {
   }
 
   onSaveCoordinatorData() {
+    let url = `http://localhost:8080/coordinators/${this.username}`
+
+    let body = {
+      "username": this.coordinator.username,
+      "memberid" : this.coordinator.memberID,
+      "password" : this.coordinator.password,
+      "region" : this.coordinator.region
+    };
+
+    this.http.put(url, body, { responseType: 'text' as 'json' })
+      .subscribe((data) => this.message = data)
+
+    this.router.navigate([`coordinators/${this.memberID}`])
+  }
+
+  onReturnToCoordinatorView(){
     this.router.navigate([`coordinators/${this.memberID}`])
   }
 }

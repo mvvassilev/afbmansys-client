@@ -4,23 +4,15 @@
   <div class="col-4">
     <form class="login-form text-center mt-5">
       <div class="form-group">
-        <input
-          type="username"
-          class="form-control"
-          id="exampleInputEmail1"
-          placeholder="Потребителско име"
-        />
+        <input [(ngModel)]="username" type="username" class="form-control" id="exampleInputEmail1"
+          placeholder="Потребителско име" name="username" />
       </div>
       <div class="form-group">
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-          placeholder="Парола"
-        />
+        <input [(ngModel)]="entPassword" type="password" class="form-control" id="exampleInputPassword1"
+          placeholder="Парола" name="password"/>
       </div>
-      <input (click)="onLogin()" type="submit" value="Вход"/>
-    </form>    
+      <input (click)="onLogin()" type="submit" value="Вход" />
+    </form>
   </div>
 
   <div class="col-4"></div>
