@@ -40,3 +40,33 @@
 
     <div class="col-1"></div>
 </div>
+
+<!-- MEMBERS IN COURSE -->
+<div class="row mt-3">
+    <div class="col-1"></div>
+
+    <div class="col-10">
+        <table class="table-sm table-hover" style="width: 100%;" id="membersTable">
+            <thead>
+                <tr>
+                    <th *ngFor="let headElement of headElements; let i = index" scope="col">{{headElement}}</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of members | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <th scope="row">{{member.id}}</th>
+                    <td>{{member.name}}</td>
+                    <td>{{member.personalID}}</td>
+                    <td>{{member.currentAddress}}</td>
+                    <td>{{member.region}}</td>
+                    <td>{{member.major}}</td>
+                    <td>{{member.email}}</td>
+                    <td>{{member.phoneNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-1"></div>
+</div>

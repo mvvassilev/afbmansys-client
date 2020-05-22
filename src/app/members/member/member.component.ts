@@ -18,7 +18,7 @@ export class MemberComponent implements OnInit {
   email: string
   major: string
   mainAddress: string
-  sex: string
+  gender: string
   registerDate: string
   region: string
   membershipID: string = 'TEST_MEMBERSHIP_ID'
@@ -95,7 +95,7 @@ export class MemberComponent implements OnInit {
       "name": this.name,
       "personalID": this.personalID,
       "major": this.major,
-      "sex": this.sex,
+      "gender": this.gender,
       "photo": this.photo,
       "phoneNumber": this.phoneNumber,
       "email": this.email,

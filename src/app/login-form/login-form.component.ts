@@ -33,18 +33,13 @@ export class LoginFormComponent implements OnInit {
     let url = `http://localhost:8080/coordinators/username/${this.username}`
 
     this.http.get(url).toPromise().then(data => {
-      // console.log(data)
-      console.log(`DATA_PASSWORD = ${data["password"]}`)
       this.password = data["password"]
 
       // authorize
       if (this.entPassword == this.password) {
         approved = true
       }
-
-      console.log(`entPassword = ${this.entPassword}`)
-      console.log(`password = ${this.password}`)
-
+      
       if (approved == true) {
         this.router.navigate(['/members'])
       } else {
